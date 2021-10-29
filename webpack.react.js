@@ -2,9 +2,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 const TARGET = process.env.TARGET ?? "electron-renderer";
+const MODE = process.env.MODE ?? "development";
 
 module.exports = {
-  mode: "development",
+  mode: MODE,
   entry: "./src/frontend/index.tsx",
   target: TARGET,
   resolve: {

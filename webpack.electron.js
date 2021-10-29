@@ -1,7 +1,9 @@
 const path = require("path");
 
+const MODE = process.env.MODE ?? "development";
+
 module.exports = {
-  mode: "development",
+  mode: MODE,
   entry: "./src/backend/main.ts",
   target: "electron-main",
   resolve: {
