@@ -1,9 +1,12 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
+const TARGET = process.env.TARGET ?? "electron-renderer";
+
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: "./src/frontend/index.tsx",
+  target: TARGET,
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
@@ -11,8 +14,8 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        include: /src/,
+        exclude: /node_modules/,
+        include: [path.join(__dirname, "/src/frontend")],
         use: [
           {
             loader: "babel-loader",
