@@ -23,7 +23,7 @@
   "scripts": {
     "start": "TARGET=web webpack serve",
     "build": "MODE=production webpack",
-    "electron:start": "concurrently -k \"webpack serve\" \"webpack && electron ./dist/backend/main.js \"",
+    "electron:start": "concurrently -k \"webpack serve\" \"webpack --config ./webpack.electron.js && electron ./dist/backend/main.js \"",
     "electron:build": "webpack && MODE=production electron-builder -c.extraMetadata.main=dist/backend/main.js --config"
   }
 }
